@@ -7,18 +7,41 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 削峰填谷。在可数循环（Counted Loop）的情况下，HotSpot虚拟机搞了一个优化，
  * 就是等待循环结束，进入安全点，才能开始工作。
  * <br><br/>
- *  * see <a href="https://juejin.cn/post/7139741080597037063"></a>
- *
+ * see:
+ * <br></br>
+ * <a href="https://juejin.cn/post/7139741080597037063">没有二十年功力，写不出Thread.sleep(0)这一行“看似无用”的代码！</a>
+ * <br></br>
+ * <a href="https://juejin.cn/post/7142709426401574949">写个续集，填坑来了！关于“Thread.sleep(0)这一行‘看似无用’的代码”里面留下的坑。</a>
+ * <br></br>
  * 注意：从JDK10起，HotSpot实现了Loop Strip Mining优化，解决了counted loop中安全点轮询的问题
- * see <a href="https://stackoverflow.com/questions/67068057/the-main-thread-exceeds-the-set-sleep-time">The main thread exceeds the set sleep time</a>
- * a href="https://bugs.openjdk.org/browse/JDK-8223051">support loops with long (64b) trip counts</a>
+ * <br></br>
+ * see:
+ * <br></br>
+ * <a href="https://stackoverflow.com/questions/67068057/the-main-thread-exceeds-the-set-sleep-time">The main thread exceeds the set sleep time</a>
+ * <br></br>
+ * <a href="https://bugs.openjdk.org/browse/JDK-8223051">support loops with long (64b) trip counts</a>
  *
  * <br><br/>
  * <h3>可数循环<h3/>
  * see:
+ * <br></br>
  * <a href="https://juejin.cn/post/6844903878765314061/">HBase实战：记一次Safepoint导致长时间STW的踩坑之旅</a>
  * <h3>安全点<h3/>
- * see: <a href="http://blog.ragozin.info/2012/10/safepoints-in-hotspot-jvm.html">Safepoints in HotSpot JVM</a>
+ * see:
+ * <br></br>
+ * <a href="http://psy-lob-saw.blogspot.com/2015/12/safepoints.html">安全点的意义、副作用以及开销</a>
+ * <br></br>
+ * <a href="https://mp.weixin.qq.com/s/Imyo_cQ5OWdY9fY0Qz3nzw">我被读者卷了...</a>
+ * <br></br>
+ * <a href="https://mp.weixin.qq.com/s?__biz=Mzg3NjU3NTkwMQ==&mid=2247509056&idx=1&sn=1d8383e50127b6b45186d243b92f5037&scene=21#wechat_redirect">真是绝了！这段被JVM动了手脚的代码！</a>
+ * <br></br>
+ * <a href="https://zhuanlan.zhihu.com/p/286110609">jvm大局观之内存管理篇: 理解jvm安全点,写出更高效的代码</a>
+ * <br></br>
+ * <a href="http://blog.ragozin.info/2012/10/safepoints-in-hotspot-jvm.html">Safepoints in HotSpot JVM</a>
+ * <br></br>
+ * <a href="https://www.zhihu.com/question/29268019/answer/43762165">现代JVM中的Safe Region和Safe Point到底是如何定义和划分的? - RednaxelaFX的回答 - 知乎</a>
+ * <br></br>
+ * <a href="https://www.javatt.com/p/47329">Java-JVM-安全点SafePoint</a>
  */
 public class ThreadSleep {
 
